@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ThemeContext } from './ThemeContext';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -16,30 +17,40 @@ import ChatBot from './components/ChatBot';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState(() => localStorage.getItem('orm-theme') || 'dark');
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('orm-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+
   return (
-    <>
-      <LoadingScreen isLoading={isLoading} />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <AISection />
-        <Booking />
-        <Testimonials />
-        <WhyChooseUs />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingWhatsApp />
-      <ChatBot />
-    </>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className={theme === 'light' ? 'light-theme' : ''}>
+        <LoadingScreen isLoading={isLoading} />
+        <Navbar theme={theme} toggleTheme={toggleTheme} />
+        <main>
+          <Hero />
+          <About />
+          <Services />
+          <AISection />
+          <Booking />
+          <Testimonials />
+          <WhyChooseUs />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+        <ChatBot />
+      </div>
+    </ThemeContext.Provider>
   );
 }

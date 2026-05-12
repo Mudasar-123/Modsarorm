@@ -1,4 +1,5 @@
-import { FaShieldAlt, FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa';
+import logoImg from '../assets/logo.png';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -35,8 +36,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <a href="#home" className="mb-4 flex items-center gap-2">
-              <FaShieldAlt className="text-2xl text-gold" />
-              <span className="gradient-text font-display text-xl font-bold">Mudasar ORM</span>
+              <img src={logoImg} alt="Mudasar ORM" className="h-12 w-auto" />
             </a>
             <p className="mt-4 text-sm leading-relaxed text-white/50">
               Premium Online Reputation Management services to protect, repair, and grow your

@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import logoImg from '../assets/logo.png';
 
 export default function LoadingScreen({ isLoading }) {
   return (
@@ -16,14 +17,14 @@ export default function LoadingScreen({ isLoading }) {
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
               className="mx-auto mb-8 h-16 w-16 rounded-full border-4 border-gold/20 border-t-gold"
             />
-            <motion.h1
+            <motion.img
+              src={logoImg}
+              alt="Mudasar ORM Services"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="gradient-text font-display text-2xl font-bold md:text-3xl"
-            >
-              Mudasar ORM Services
-            </motion.h1>
+              className="mx-auto mb-2 h-16 w-auto"
+            />
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
