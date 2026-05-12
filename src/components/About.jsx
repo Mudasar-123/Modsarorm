@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
+import ReactCountUp from 'react-countup';
 import {
   FaUserTie, FaShieldAlt, FaStar, FaChartLine,
   FaLinkedin, FaEnvelope, FaWhatsapp,
 } from 'react-icons/fa';
+
+const CountUp = ReactCountUp.default || ReactCountUp;
 
 const stats = [
   { icon: FaStar, value: 500, suffix: '+', label: 'Clients Served' },
