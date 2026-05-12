@@ -95,7 +95,7 @@ function AnalyticsChart() {
         ))}
       </div>
       <div className="mt-1 flex justify-between text-[10px] text-white/30">
-        {months.map((m) => <span key={m}>{m}</span>)}
+        {months.map((m, i) => <span key={i}>{m}</span>)}
       </div>
     </div>
   );
