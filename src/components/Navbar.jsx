@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import logoImg from '../assets/logo.png';
+
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -38,8 +38,12 @@ export default function Navbar({ theme, toggleTheme }) {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
-        <a href="#home" className="flex items-center gap-2">
-          <img src={logoImg} alt="Mudasar ORM" className="h-10 w-auto" />
+        <a href="#home" className="group flex items-center gap-2">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-light font-display text-lg font-black text-black transition-transform duration-300 group-hover:scale-110">M</span>
+          <span className="font-display text-xl font-bold">
+            <span className="gradient-text">Mudasar</span>{' '}
+            <span className={theme === 'dark' ? 'text-white' : 'text-gray-800'}>ORM</span>
+          </span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
