@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaWhatsapp, FaCalendarAlt, FaHeadset, FaStar, FaShieldAlt, FaChartLine } from 'react-icons/fa';
 import ParticleBackground from './ParticleBackground';
+import { useTheme } from '../ThemeContext';
 
 const typingTexts = [
   'Online Reputation Management',
@@ -109,12 +110,13 @@ function ReputationDashboard() {
 
 export default function Hero() {
   const typedText = useTypingEffect(typingTexts);
+  const { theme } = useTheme();
 
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-darker pt-24">
-      <ParticleBackground />
+    <section id="home" className={`relative min-h-screen overflow-hidden pt-24 ${theme === 'dark' ? 'bg-darker' : 'bg-white'}`}>
+      {theme === 'dark' && <ParticleBackground />}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-transparent to-darker" />
+      <div className={`absolute inset-0 ${theme === 'dark' ? 'bg-gradient-to-b from-charcoal/50 via-transparent to-darker' : 'bg-gradient-to-b from-gray-100/50 via-transparent to-white'}`} />
       <div className="absolute top-20 -left-40 h-80 w-80 rounded-full bg-gold/5 blur-[100px]" />
       <div className="absolute right-0 bottom-20 h-80 w-80 rounded-full bg-neon/5 blur-[100px]" />
 
@@ -154,7 +156,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-base text-white/60 lg:mx-0 lg:text-lg"
+            className={`mx-auto mt-6 max-w-xl text-base lg:mx-0 lg:text-lg ${theme === 'dark' ? 'text-white/60' : 'text-gray-600'}`}
           >
             We help businesses eliminate negative reviews, boost ratings, and build unshakeable
             trust online using cutting-edge AI-powered reputation management strategies.
@@ -175,7 +177,7 @@ export default function Hero() {
             </a>
             <a
               href="#booking"
-              className="flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 font-semibold text-white transition-all duration-300 hover:border-gold hover:bg-gold/10"
+              className={`flex items-center gap-2 rounded-full border px-8 py-4 font-semibold transition-all duration-300 hover:border-gold hover:bg-gold/10 ${theme === 'dark' ? 'border-white/20 text-white' : 'border-gray-300 text-gray-800'}`}
             >
               <FaHeadset />
               Free Consultation
@@ -204,7 +206,7 @@ export default function Hero() {
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-display text-2xl font-bold text-gold">{stat.value}</p>
-                <p className="text-xs text-white/50">{stat.label}</p>
+                <p className={`text-xs ${theme === 'dark' ? 'text-white/50' : 'text-gray-500'}`}>{stat.label}</p>
               </div>
             ))}
           </motion.div>

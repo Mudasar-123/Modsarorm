@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
+import ReactCountUp from 'react-countup';
 import {
   FaUserTie, FaShieldAlt, FaStar, FaChartLine,
   FaLinkedin, FaEnvelope, FaWhatsapp,
 } from 'react-icons/fa';
+import founderImg from '../assets/founder.jpg';
+
+const CountUp = ReactCountUp.default || ReactCountUp;
 
 const stats = [
   { icon: FaStar, value: 500, suffix: '+', label: 'Clients Served' },
@@ -50,8 +53,8 @@ export default function About() {
             transition={{ duration: 0.6 }}
           >
             <div className="glass-card animate-pulse-glow relative mx-auto max-w-sm overflow-hidden p-8 text-center">
-              <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-4 border-gold/30 bg-gradient-to-br from-charcoal to-charcoal-light">
-                <FaUserTie className="text-5xl text-gold" />
+              <div className="mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-gold/30">
+                <img src={founderImg} alt="Muhammad Mudasar" className="h-full w-full object-cover" />
               </div>
               <h3 className="font-display text-2xl font-bold">Muhammad Mudasar</h3>
               <p className="mt-1 text-sm text-gold">Founder & ORM Specialist</p>

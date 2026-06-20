@@ -1,4 +1,5 @@
-import { FaShieldAlt, FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa';
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram, FaWhatsapp, FaHeart } from 'react-icons/fa';
+
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -34,9 +35,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <a href="#home" className="mb-4 flex items-center gap-2">
-              <FaShieldAlt className="text-2xl text-gold" />
-              <span className="gradient-text font-display text-xl font-bold">Mudasar ORM</span>
+            <a href="#home" className="group mb-4 flex items-center gap-2">
+              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-gold to-gold-light font-display text-xl font-black text-black transition-transform duration-300 group-hover:scale-110">M</span>
+              <span className="font-display text-xl font-bold">
+                <span className="gradient-text">Mudasar</span>{' '}
+                <span className="text-white">ORM</span>
+              </span>
             </a>
             <p className="mt-4 text-sm leading-relaxed text-white/50">
               Premium Online Reputation Management services to protect, repair, and grow your
